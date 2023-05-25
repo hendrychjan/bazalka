@@ -12,8 +12,10 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   final _formKey = GlobalKey<FormState>();
-  final _serverUrlHomeController = TextEditingController();
-  final _serverUrlAwayController = TextEditingController();
+  final _serverUrlHomeController =
+      TextEditingController(text: AppController.to.serverUrlHome.value);
+  final _serverUrlAwayController =
+      TextEditingController(text: AppController.to.serverUrlAway.value);
 
   @override
   Widget build(BuildContext context) {

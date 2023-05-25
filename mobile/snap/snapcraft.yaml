@@ -1,0 +1,28 @@
+name: bazalka
+version: 0.1.0
+summary: The automatic pot watering system
+description: The automatic pot watering system
+
+confinement: strict
+base: core18
+grade: stable
+
+slots:
+  bazalka:
+    interface: dbus
+    bus: session
+    name: com.hendrychjan.bazalka
+    
+apps:
+  bazalka:
+    command: bazalka
+    extensions: [flutter-master] 
+    plugs:
+    - network
+    slots:
+      - dbus-super-cool-app
+parts:
+  bazalka:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart
