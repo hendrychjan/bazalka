@@ -20,6 +20,7 @@ serServer.on("open", () => {
     lastValue = data;
     process.stdout.write("[SERIAL]: " + data);
     connections.forEach((client) => {
+      if (client.destroyed) return;
       try {
         client.write(data);
       } catch (e) {}
